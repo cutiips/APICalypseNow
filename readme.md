@@ -31,7 +31,7 @@ API_KEY=YOUR_API_KEY_HERE
 Create and activate a virtual environment, then install requirements:
 ```bash
 python -m venv env
-source env\Scripts\activate # ON WINDOWS
+env\Scripts\activate # ON WINDOWS
 pip install -r requirements.txt
 ```
 ## 🚀 Usage 
