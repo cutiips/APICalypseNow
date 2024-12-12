@@ -67,11 +67,11 @@ def get_moderation_result(execution_id):
         result = response.json()
         status = result.get("content", {}).get("status", "")
 
-        if status == "success":
+        if status == "succeeded":
             return result
         elif status == "failed":
             raise Exception(f"Moderation failed: {result}")
-        elif status == "running":
+        elif status == "processing":
             time.sleep(wait_interval)
         else:
             raise Exception(f"Unexpected status: {status}")
@@ -104,7 +104,7 @@ def process_moderation_results(results, rejection_threshold=0.5):
                 highest_score = subitem.get("likelihood_score", 0)
         return nsfw_likelihood_score * 100, highest_category, status
 
-    return 0, "Unknown", "success"
+    return 0, "Unknown", "succeeded"
 
 def process_file(file_path):
     """
