@@ -76,7 +76,7 @@ def get_moderation_result(execution_id):
         else:
             raise Exception(f"Unexpected status: {status}")
 
-def process_moderation_results(results, rejection_threshold=0.5):
+def process_moderation_results(results, rejection_threshold=0.2):
     """
     Processes moderation results and determines rejection status based on a threshold.
 
